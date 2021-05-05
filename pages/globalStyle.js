@@ -1,18 +1,16 @@
-import React from 'react';
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { FunctionalsContent } from '../context/contextApi'
+import React from "react";
+import { createGlobalStyle } from "styled-components";
+import { FunctionalsContent } from "../context/contextApi";
 
 export const Style = createGlobalStyle`
 :root {
-  ${
-    (props)=>{
-        if (props.mode=='light') {
-            return props.theme.light.root;
-            } else {
-                return props.theme.dark.root;
-            }
-        }
+  ${(props) => {
+    if (props.mode === "light") {
+      return props.theme.light.root;
+    } else {
+      return props.theme.dark.root;
     }
+  }}
   }
 }
   body,html {
@@ -32,9 +30,11 @@ export const Style = createGlobalStyle`
   }
 
   
-`
-const  GlobalDefault =({theme})=>{
-const {darkMode:{className}} = React.useContext(FunctionalsContent)
-return <Style  theme={theme} mode={className}/>
-}
-export default GlobalDefault; 
+`;
+const GlobalDefault = ({ theme }) => {
+  const {
+    darkMode: { className },
+  } = React.useContext(FunctionalsContent);
+  return <Style theme={theme} mode={className} />;
+};
+export default GlobalDefault;

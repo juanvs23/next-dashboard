@@ -1,18 +1,15 @@
-
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-import bootstrap from '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
-import bootstraIcon from '../node_modules/bootstrap-icons/font/bootstrap-icons.css'
-import '../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css';
+import { ThemeProvider } from "styled-components";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+import "../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css";
 import FunctionalsProvider from "../context/contextApi";
 
-import GlobalDefault from './globalStyle'
-
+import GlobalDefault from "./globalStyle";
 
 const theme = {
-   
-    dark:{
-      root:`
+  dark: {
+    root: `
       
         --blue: #375a7f;
         --indigo: #6610f2;
@@ -46,10 +43,10 @@ const theme = {
         --bs-font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
         --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
     
-      `
-    },
-    light:{
-      root:`
+      `,
+  },
+  light: {
+    root: `
       
       
         --blue: #2780e3;
@@ -84,21 +81,17 @@ const theme = {
         --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   
     
-      `
-    }
-  }
-  
+      `,
+  },
+};
 
 export default function MyApp({ Component, pageProps }) {
-  
-    return (
-        <FunctionalsProvider>
-            
-             <GlobalDefault theme={theme}  />
-            <ThemeProvider theme={theme}>
-            <Component {...pageProps} />
-
-            </ThemeProvider>
-        </FunctionalsProvider>
-    )
-  }
+  return (
+    <FunctionalsProvider>
+      <GlobalDefault theme={theme} />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </FunctionalsProvider>
+  );
+}
